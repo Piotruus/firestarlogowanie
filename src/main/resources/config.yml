@@ -1,0 +1,70 @@
+# ============================================================
+#  SerwerAuth — konfiguracja
+#  Po zmianach wpisz /auth reload
+# ============================================================
+
+haslo:
+  min-dlugosc: 10            # minimalna długość hasła
+  max-dlugosc: 64            # maksymalna długość hasła
+  iteracje-pbkdf2: 210000    # koszt haszowania (wyżej = bezpieczniej, ale wolniej)
+  maks-kont-na-ip: 3         # ile kont można założyć z jednego IP
+
+logowanie:
+  czas-na-zalogowanie: 60    # sekundy na rejestrację/logowanie od wejścia, potem kick
+  przypomnienie-sekundy: 4   # co ile sekund powtarzać na czacie /register lub /login
+  tytul-na-srodku: true      # pokaż /register lub /login także jako duży napis na środku ekranu
+  maks-prob-hasla: 5         # błędne hasła do blokady (osobno dla nicku i IP)
+  blokada-sekundy: 120       # bazowy czas blokady; podwaja się przy kolejnych blokadach (maks. 1 h)
+                             # blokady są zapisywane w bazie — NIE resetują się po restarcie
+  sesja-minuty: 0            # 0 = wyłączone; >0 = pomiń logowanie przy powrocie z tego samego IP
+
+captcha:
+  wlaczona: true
+  tryb: MAPA                 # MAPA = obrazek na mapie w ręce | CZAT = kod w czacie (słabszy, bot go przeczyta)
+  dlugosc: 5                 # liczba znaków kodu
+  maks-prob: 3               # błędne kody do kicka
+  przy-logowaniu: false      # true = /login (hasło) (captcha); false = captcha tylko przy rejestracji
+
+weryfikacja-ruchu:
+  wlaczona: true
+  kroki: 5                   # ile "kroków" musi wykonać gracz
+  min-dystans: 0.9           # minimalny dystans (bloki) liczony jako jeden krok
+  min-odstep-ms: 350         # minimalny odstęp między krokami
+  maks-skok: 4.0             # większy skok w jednym ticku = teleport, nie liczy się
+  promien: 8.0               # maksymalna odległość od miejsca startu weryfikacji
+  wymagaj-obrotu: true       # gracz musi też ruszyć kamerą (odsiewa proste boty)
+  min-obrot-stopni: 20
+  wymagaj-zmiany-kierunku: true   # gracz musi zmienić kierunek marszu (bot idący prosto odpada)
+  min-zmiana-kierunku: 35         # minimalna zmiana kierunku w stopniach
+  czas: 30                   # sekundy na ukończenie weryfikacji ruchu
+
+polaczenia:
+  maks-na-minute-z-ip: 6     # limit prób połączenia z jednego IP na minutę
+  nick-regex: '^[A-Za-z0-9_]{3,16}$'
+
+# Tryb ataku: włącza się sam, gdy w krótkim czasie napłynie lawina połączeń (boty).
+tryb-ataku:
+  wlaczony: true
+  prog-polaczen: 25          # tyle prób połączenia w oknie czasowym włącza tryb ataku
+  okno-sekundy: 10
+  czas-trwania-sekundy: 300  # tryb trwa tak długo, jak długo atak się przedłuża (min. tyle sekund)
+  maks-na-minute-z-ip: 2     # zaostrzony limit połączeń z IP w trybie ataku
+  blokuj-nowe-nicki: true    # w trybie ataku nie wpuszczaj nicków bez konta (boty rejestrujące się masowo)
+  wylacz-sesje: true         # w trybie ataku ignoruj zapamiętane sesje
+
+ukryj-komunikaty-dolaczenia: true   # komunikat "dołączył" pojawi się dopiero po pełnej weryfikacji
+
+# Komendy dozwolone przed zalogowaniem
+dozwolone-komendy:
+  - login
+  - l
+  - zaloguj
+  - register
+  - reg
+  - zarejestruj
+
+premium:
+  wlaczone: true
+  cache-minuty: 10           # jak długo pamiętać odpowiedź API Mojang
+  weryfikacja-ruchu: false   # czy gracz premium (potwierdzony przez Mojang) też ma robić weryfikację ruchu
+  blokuj-nieweryfikowane: false   # true = konto premium wpuszczane TYLKO z oficjalnego launchera (wymaga modułu Velocity!)

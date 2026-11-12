@@ -1,0 +1,124 @@
+# SerwerAuth — wiadomości
+# Można używać klasycznych kodów kolorów (&a, &6, &l ...) oraz tagów MiniMessage (<green>, <gradient:...>).
+# Zmienne w nawiasach ostrych (<nick>, <czas>, <pozostalo> ...) są podmieniane przez plugin.
+# Nawiasy okrągłe (hasło) to zwykły tekst.
+
+prefix: ''
+
+blad: '&cWystąpił błąd. Spróbuj ponownie za chwilę.'
+dolaczyl: '&e<nick> dołączył do gry'
+
+actionbar:
+  rejestracja: '&eRejestracja &7— zostało &f<czas> s'
+  login: '&eLogowanie &7— zostało &f<czas> s'
+  ruch: '&aWeryfikacja pozycji! Poruszaj się &f(<krok>/<max>) &7— &f<czas> s'
+
+# Powtarzane na czacie co "przypomnienie-sekundy", dopóki gracz się nie zarejestruje / zaloguje
+przypomnienie:
+  rejestracja: '&a/register (hasło) (hasło) (captcha)'
+  rejestracja-bez-captcha: '&a/register (hasło) (hasło)'
+  login: '&6/login (hasło)'
+  login-captcha: '&6/login (hasło) (captcha)'
+
+# Podtytuł pod napisem na środku ekranu (sam napis to wiadomości z "przypomnienie" powyżej)
+podtytul:
+  rejestracja: '&7Kod captcha masz na mapie w ręce'
+  login: '&7Wpisz hasło do swojego konta'
+
+captcha:
+  mapa: '&eKod captcha znajdziesz na &6mapie w swojej ręce&e. &7(wielkość liter nie ma znaczenia)'
+  czat: '&eTwój kod captcha: &f&l<kod>'
+  zle: '&cZły kod captcha! Wygenerowano nowy. Pozostało prób: &f<pozostalo>'
+
+login:
+  witaj: '&eWitaj ponownie, &f<nick>&e!'
+  uzycie: '&cUżycie: /login (hasło)'
+  uzycie-captcha: '&cUżycie: /login (hasło) (captcha)'
+  ok: '&aZalogowano pomyślnie.'
+  zle-haslo: '&cNieprawidłowe hasło. Pozostało prób: &f<pozostalo>'
+  sesja: '&aWznowiono sesję — zalogowano automatycznie.'
+  juz: '&cJesteś już zalogowany.'
+  brak-konta: '&cNie masz jeszcze konta. Użyj &f/register (hasło) (hasło) (captcha)'
+  nie-teraz: '&cTa komenda nie jest teraz dostępna.'
+  zablokowano: '&cZbyt wiele nieudanych prób. Spróbuj za &f<czas>&c.'
+
+register:
+  witaj: '&eWitaj, &f<nick>&e! Musisz założyć konto.'
+  uzycie: '&cUżycie: /register (hasło) (hasło) (captcha)'
+  uzycie-bez-captcha: '&cUżycie: /register (hasło) (hasło)'
+  haslo-rozne: '&cHasła nie są takie same.'
+  limit-kont: '&cZ Twojego adresu IP zarejestrowano już maksymalną liczbę kont.'
+  masz-konto: '&cTo konto już istnieje. Użyj &f/login (hasło)'
+  ok: '&aRejestracja przebiegła pomyślnie'
+
+polityka:
+  naglowek: '&cHasło jest zbyt słabe:'
+  za-krotkie: ' &c✗ &7minimum &f<min> &7znaków'
+  za-dlugie: ' &c✗ &7maksymalnie &f<max> &7znaków'
+  brak-duzej: ' &c✗ &7co najmniej jedna &fwielka litera'
+  brak-malej: ' &c✗ &7co najmniej jedna &fmała litera'
+  brak-cyfry: ' &c✗ &7co najmniej jedna &fcyfra'
+  brak-znaku: ' &c✗ &7co najmniej jeden &fznak specjalny &7(np. ! @ # $ %)'
+  spacje: ' &c✗ &7hasło nie może zawierać &fspacji'
+  zawiera-nick: ' &c✗ &7hasło nie może zawierać &fTwojego nicku'
+  popularne: ' &c✗ &7hasło jest &fzbyt popularne'
+  powtorzenia: ' &c✗ &7unikaj &f3 takich samych znaków &7z rzędu'
+  sekwencja: ' &c✗ &7unikaj &fciągów typu 1234, abcd, qwer'
+
+ruch:
+  start: '&aWeryfikacja pozycji! Zacznij się poruszać! &f(<krok>/<max>)'
+  krok: '&a✔ Ruch zaliczony &f(<krok>/<max>)'
+  obrot: '&eRozejrzyj się — poruszaj kamerą myszką, aby dokończyć weryfikację.'
+  kierunek: '&eZmień kierunek — przejdź też w bok lub zawróć, aby dokończyć weryfikację.'
+  strefa: '&cNie oddalaj się od miejsca weryfikacji!'
+  ok: '&aWeryfikacja zakończona pomyślnie. Miłej gry!'
+
+zmiana:
+  uzycie: '&cUżycie: /changepassword (stare hasło) (nowe hasło)'
+  stare-zle: '&cStare hasło jest nieprawidłowe. Pozostało prób: &f<pozostalo>'
+  takie-samo: '&cNowe hasło musi się różnić od starego.'
+  ok: '&aHasło zostało zmienione.'
+
+usuwanie:
+  uzycie: '&cUżycie: /unregister (hasło)'
+  zle-haslo: '&cNieprawidłowe hasło. Pozostało prób: &f<pozostalo>'
+
+premium:
+  zalogowano: '&fZalogowano z konta &6&lPREMIUM'
+  wylaczone: '&cFunkcje premium są wyłączone na tym serwerze.'
+  ostrzezenie: '&e&lUWAGA! &7Po włączeniu trybu premium wejdziesz na ten nick <newline>&7tylko z oficjalnego konta Minecraft. Jeśli grasz na nie-premium, &cNIE włączaj tego!<newline>&7Aby potwierdzić, wpisz: &f/premium potwierdz'
+  sprawdzam: '&7Sprawdzam konto w Mojang...'
+  wlaczono: '&aKonto oznaczone jako &6&lPREMIUM&a. &7Od następnego wejścia wymagane jest oficjalne konto.'
+  wylaczono: '&aWyłączono tryb premium dla Twojego konta.'
+  brak-konta: '&cNick &f<nick> &cnie jest kontem premium w Mojang.'
+  blad: '&cNie udało się połączyć z serwerami Mojang. Spróbuj później.'
+
+czat:
+  zablokowany: '&cCzat jest zablokowany do czasu pełnej weryfikacji.'
+
+komenda:
+  zablokowana: '&cPrzed zalogowaniem możesz używać tylko komend logowania.'
+
+kick:
+  czas: '&cUpłynął czas na rejestrację / logowanie (<sekundy> s).'
+  ruch-czas: '&cNie ukończyłeś weryfikacji ruchu w wyznaczonym czasie.'
+  captcha: '&cZbyt wiele błędnych kodów captcha.'
+  zablokowano: '&cZbyt wiele nieudanych prób.<newline>&7Spróbuj ponownie za &f<czas>&7.'
+  blad-bazy: '&cBłąd bazy danych. Spróbuj ponownie za chwilę.'
+  nick: '&cNiedozwolony nick.<newline>&7Dozwolone: litery, cyfry i _ (3–16 znaków).'
+  polaczenia: '&cZbyt wiele prób połączenia.<newline>&7Odczekaj chwilę.'
+  zly-rozmiar: '&cUżyj nicku dokładnie takiego jak przy rejestracji:<newline>&f<nick>'
+  konto-usuniete: '&eTwoje konto zostało usunięte.'
+  atak: '&cSerwer jest pod atakiem botów.<newline>&7Zakładanie nowych kont jest chwilowo wyłączone — spróbuj za kilka minut.'
+  premium-wymagane: '&cTo konto jest premium.<newline>&7Wejdź z oficjalnego konta Minecraft.'
+
+admin:
+  brak-uprawnien: '&cBrak uprawnień.'
+  pomoc: '&e/auth reload &7| &e/auth info (nick) &7| &e/auth usun (nick) &7| &e/auth odblokuj (nick lub IP) &7| &e/auth premiumoff (nick)'
+  przeladowano: '&aPrzeładowano konfigurację.'
+  brak-konta: '&cNie ma takiego konta.'
+  info: '&7Konto &f<nick> &7| premium: &f<premium> &7| rejestracja: &f<data-rej> &7(IP &f<ip-rej>&7) | ostatnie logowanie: &f<data-log> &7(IP &f<ip-log>&7)'
+  usunieto: '&aUsunięto konto &f<nick>&a.'
+  odblokowano: '&aZdjęto blokady dla: &f<cel>'
+  premiumoff: '&aWyłączono premium dla &f<nick>&a. &7Usuń też nick z listy proxy w konsoli Velocity: &f/authpremium remove <nick>'
+  atak-start: '&c&l[SerwerAuth] Wykryto atak botów! &7Tryb ataku włączony (min. <czas>).'
